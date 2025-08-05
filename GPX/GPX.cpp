@@ -111,12 +111,21 @@ String GPX::getPt(String typ, String lon, String lat){
     localStr += wrapCDATA(_src);
     localStr += _GPX_SRC_TAIL;
   }
+  if (_time.length() > 0){
+    localStr += _GPX_TIME_HEAD;
+    localStr += _time;
+    localStr += _GPX_TIME_TAIL;
+  }
   localStr += String(_GPX_PT_TAIL).replace("TYPE",typ);
   return localStr;
 }
     
-String GPX::getPt(String typ, String lon, String lat, String ele){
+String GPX::getPt(String typ, float lon, float lat){
+  return getPt(typ, String(lon, 6), String(lat, 6));
+}
 
+String GPX::getName(){
+  return _name;
 }
 
 //Set Methods
@@ -140,6 +149,10 @@ void GPX::setSym(String sym){
 }
 void GPX::setSrc(String src){
   _src = src;
+}
+
+void GPX::setTime(String time){
+  _time = time;
 }
 
 //Private Functions

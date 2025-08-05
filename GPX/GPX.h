@@ -76,7 +76,8 @@ class GPX{
     String getTrakSegClose();
     String getInfo();
     String getPt(String typ, String lon, String lat);
-    String getPt(String typ, String lon, String lat, String ele);
+    String getPt(String typ, float lon, float lat);
+    String getName();
     void setMetaName(String name);
     void setMetaDesc(String desc);
     void setName(String name);
